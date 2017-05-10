@@ -7,6 +7,6 @@ services:
     volumes:
       - ./www:/www
     working_dir: /www
-    # command: npm run dev
+    command: bash -c "npm install && npm start"
     ports:
-      - "80:3333"
+      - "80:3000"

@@ -1,6 +1,8 @@
 # disallow:
+
 node_modules
-working
 www/node_modules
+npm-debug.log
+working
 .tern-port
 _old_

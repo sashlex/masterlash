@@ -1,14 +1,11 @@
 // 'use strict';
-
 // var webpack = require( 'webpack' );
-
 // module.exports = {
 //    watch: false,
 //    context: __dirname + '/www/public',
 //    entry: {
 //       index: 'js/script',
 //       css: 'css/css'
-
 //    },
 //    output: {
 //       path: __dirname + '/www/public',
