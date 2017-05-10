@@ -33,7 +33,7 @@ app.use( views( configs.VIEWS_DIR, {
 app.use( routes.routes() ).use( routes.allowedMethods() );
 
 /* on port 3000 */
-app.listen( configs.PORT );
+const server = app.listen( configs.PORT );
 
 /* the application was started successfully */
 configs.LOG && winston.log( 'info', `The application was started successfully on port: ${configs.PORT}.` );

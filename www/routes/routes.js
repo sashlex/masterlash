@@ -6,7 +6,10 @@ const router = new Router();
 
 router.get( '/', async ( ctx, next ) => {
    await next();
-   ctx.state = { title: 'my title', body: 'Hello World!' };
+   ctx.state = {
+      title: 'Title',
+      body: 'Hello World!'
+   };
    return ctx.render( `index.hbs` );
 });
 

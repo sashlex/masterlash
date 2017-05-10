@@ -3,11 +3,11 @@
 const path = require( 'path' );
 const rootDir = path.normalize( `${__dirname}/../` );
 const viewsDir = path.normalize( `${rootDir}/views` );
-const nodeEnv = process.argv[ 1 ] ? process.argv[ 2 ] : 'development';
+const nodeEnv = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
 const configs = {
 
-   NODE_ENV: nodeEnv === 'production' ? 'production' : 'development',
+   NODE_ENV: nodeEnv,
    LOG: nodeEnv !== 'production',
    PORT: 3000,
 

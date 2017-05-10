@@ -6,8 +6,8 @@
    "author": "sashlex",
    "license": "MIT",
    "scripts": {
-      "dev": "node . development",
-      "prod": "node . production"
+      "dev": "NODE_ENV='development' node .",
+      "prod": "NODE_ENV='production' node ."
    },
    "dependencies": {
       "handlebars": "^4.0.8",
