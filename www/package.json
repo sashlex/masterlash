@@ -10,6 +10,7 @@
       "prod": "node . production"
    },
    "dependencies": {
+      "handlebars": "^4.0.8",
       "koa": "^2.2.0",
       "koa-logger-winston": "^0.0.2",
       "koa-router": "next",

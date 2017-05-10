@@ -1,8 +1,8 @@
 'use strict';
 
 const path = require( 'path' );
-const rootDir = path.normalize( '../' + __dirname );
-const viewsDir = path.normalize( rootDir + '/views' );
+const rootDir = path.normalize( `${__dirname}/../` );
+const viewsDir = path.normalize( `${rootDir}/views` );
 const nodeEnv = process.argv[ 1 ] ? process.argv[ 2 ] : 'development';
 
 const configs = {
