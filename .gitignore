@@ -1,8 +1,9 @@
 # disallow:
 
 node_modules
-www/node_modules
 npm-debug.log
 working
 .tern-port
 _old_
+www/node_modules
+www/log/*

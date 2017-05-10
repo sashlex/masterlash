@@ -9,6 +9,8 @@
       "start": "node server.js"
    },
    "dependencies": {
-      "koa": "^2.2.0"
+      "koa": "^2.2.0",
+      "koa-logger-winston": "^0.0.2",
+      "winston": "^2.3.1"
    }
 }
