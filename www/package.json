@@ -12,6 +12,7 @@
    "dependencies": {
       "koa": "^2.2.0",
       "koa-logger-winston": "^0.0.2",
+      "koa-router": "next",
       "koa-views": "^6.0.2",
       "winston": "^2.3.1"
    }

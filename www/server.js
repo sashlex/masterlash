@@ -1,8 +1,9 @@
 'use strict';
 
-const configs = require( './configs/configs.js' );
+const configs = require( './configs/configs' );
 const winston = require( 'winston' );
 const koaLogger = require( 'koa-logger-winston' );
+const routes = require( './routes/routes' );
 const views = require( 'koa-views' );
 const Koa = require( 'koa' );
 const app = new Koa();
@@ -28,11 +29,10 @@ app.use( views( configs.VIEWS_DIR, {
    map: { hbs: 'handlebars' }
 }));
 
-app.use( async ( ctx, next ) => {
-   await next();
-   ctx.body = 'Hello World';
-});
+/* routes setup */
+app.use( routes.routes() ).use( routes.allowedMethods() );
 
+/* on port 3000 */
 app.listen( configs.PORT );
 
 /* the application was started successfully */
