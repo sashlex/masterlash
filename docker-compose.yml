@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+  masterlash:
+    image: node:latest
+    volumes:
+      - ./www:/www
+    working_dir: /www
+    # command: npm run dev
+    ports:
+      - "80:3333"

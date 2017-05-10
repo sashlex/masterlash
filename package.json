@@ -1,0 +1,10 @@
+{
+  "name": "masterlashDevelopment",
+  "version": "0.0.1",
+  "description": "Masterlash site development.",
+  "author": "sashlex <sashlex@yandex.ru>",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+  }
+}

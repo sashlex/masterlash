@@ -1,0 +1,6 @@
+# disallow:
+node_modules
+working
+www/node_modules
+.tern-port
+_old_

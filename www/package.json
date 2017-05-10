@@ -1,0 +1,11 @@
+{
+  "name": "masterlash",
+  "version": "0.0.1",
+  "description": "Masterlash site.",
+  "main": "index.js",
+  "author": "sashlex",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.2.0"
+  }
+}
