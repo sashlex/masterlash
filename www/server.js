@@ -7,6 +7,16 @@ const views = require( 'koa-views' );
 const Koa = require( 'koa' );
 const app = new Koa();
 
+/* error handling */
+app.use( async ( ctx, next ) => {
+   try {
+      await next();
+   } catch( error ) {
+      error.status = error.statusCode || error.status || 500;
+      throw error;
+   }
+});
+
 /* logger setup */
 winston.remove( winston.transports.Console );
 winston.add( winston.transports.Console, configs.LOGGER_CONSOLE_OPTIONS );
@@ -14,11 +24,9 @@ winston.add( winston.transports.File, configs.LOGGER_FILE_OPTIONS );
 app.use( koaLogger( winston ) );
 
 /* views setup */
-// app.use( views( __dirname + '/views', {
-//   map: {
-//     html: 'underscore'
-//   }
-// }));
+app.use( views( configs.VIEWS_DIR, {
+   map: { hbs: 'handlebars' }
+}));
 
 app.use( async ( ctx, next ) => {
    await next();
