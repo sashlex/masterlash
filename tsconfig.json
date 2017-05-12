@@ -4,7 +4,8 @@
       "target": "es6",
       "moduleResolution": "node",
       "module": "CommonJS",
-      "sourceMap": true
+      "sourceMap": true,
+      "outDir": "./dist"
    },
    "include": [
       "www/server.ts"

@@ -5,15 +5,14 @@
    "author": "sashlex <sashlex@yandex.ru>",
    "license": "MIT",
    "scripts": {
-      "start": "node dist/server.js",
-      "list": "pm2 list",
-      "stop-pm2": "pm2 stop all",
-      "start-pm2": "DEBUG='*' pm2-dev start pm2.config.js --env development",
-      "prod": "pm2 start pm2.config.js --update-env --env production"
+      "build": "gulp",
+      "stop": "pm2 stop all",
+      "start-dev": "DEBUG='*' pm2-dev start pm2.config.js --env development",
+      "start-prod": "pm2 start pm2.config.js --update-env --env production"
    },
    "dependencies": {},
    "devDependencies": {
-      "gulp": "^3.9.1",
+      "gulp": "gulpjs/gulp.git#4.0",
       "pm2": "^2.4.6",
       "typescript": "^2.3.2"
    }
