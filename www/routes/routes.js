@@ -6,11 +6,7 @@ const router = new Router();
 
 router.get( '/', async ( ctx, next ) => {
    await next();
-   ctx.state = {
-      title: 'Title',
-      body: 'Hello World!'
-   };
-   return ctx.render( `index.hbs` );
+   return ctx.render( 'content.pug' );
 });
 
 module.exports = router;

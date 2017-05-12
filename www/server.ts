@@ -1,11 +1,11 @@
 'use strict';
 
-const configs = require( './configs/configs' );
-const winston = require( 'winston' );
-const koaLogger = require( 'koa-logger-winston' );
-const routes = require( './routes/routes' );
-const views = require( 'koa-views' );
-const Koa = require( 'koa' );
+import * as configs from './configs/configs';
+import * as routes from './routes/routes';
+import * as winston from 'winston';
+import * as koaLogger from 'koa-logger-winston';
+import * as pug from 'pug';
+import * as Koa from 'koa';
 const app = new Koa();
 
 /* error handling */
@@ -24,10 +24,20 @@ winston.add( winston.transports.Console, configs.LOGGER_CONSOLE_OPTIONS );
 winston.add( winston.transports.File, configs.LOGGER_FILE_OPTIONS );
 app.use( koaLogger( winston ) );
 
-/* views setup */
-app.use( views( configs.VIEWS_DIR, {
-   map: { hbs: 'handlebars' }
-}));
+/* views midleware setup */
+app.use( async ( ctx, next ) => {
+
+   /* set render options */
+   let options = Object.assign( {}, configs.PUG_OPTIONS );
+   options.app = app;
+
+   /* render */
+   ctx.render = ( path ) => {
+      ctx.body =  pug.renderFile( `${ configs.VIEWS_DIR }/${ path }` );
+      return ctx.body;
+   };
+   return await next();
+});
 
 /* routes setup */
 app.use( routes.routes() ).use( routes.allowedMethods() );

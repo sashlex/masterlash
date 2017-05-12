@@ -26,6 +26,11 @@ const configs = {
       maxsize: 102400,
       maxFiles: 12,
       tailable: true
+   },
+
+   /* template engine config */
+   PUG_OPTIONS: {
+      basedir: viewsDir
    }
 };
 

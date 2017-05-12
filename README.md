@@ -1,5 +1,7 @@
 ## Masterlash site.
 ### Installation:
-* npm install
+* do first https://yarnpkg.com/lang/en/docs/install/
+* yarn install
+* yarn gulp
 * docker-compose up --build
-* go to http:/localhost:3000/
+* open http:/localhost:3000/
