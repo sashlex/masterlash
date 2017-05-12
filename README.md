@@ -1,7 +1,7 @@
 ## Masterlash site.
 ### Installation:
-* do first https://yarnpkg.com/lang/en/docs/install/
-* yarn install
-* yarn build
-* docker-compose up --build
-* open http:/localhost:3000/
+* "yarn install"
+* "yarn build"
+* "yarn compose"
+* go on "http:/localhost:3000/"
+* "yarn watch" - run for development

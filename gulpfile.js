@@ -8,6 +8,7 @@ const WWW_DIR = path.normalize( `${ __dirname }/www` );
 const VIEWS_DIR = path.normalize( `${ WWW_DIR }/views` );
 const DIST_DIR = path.normalize( `${ __dirname }/dist` );
 
+/* START secondary tasks */
 /* copy files */
 gulp.task( 'copy', () => gulp.src( [
    `${ VIEWS_DIR }/**/*`,
@@ -33,8 +34,26 @@ gulp.task( 'install', next =>
            })
          );
 
-/* watch changes */
-gulp.task( 'watch', gulp.series( 'copy', 'install', function watch( next ) {
+/* watch assets */
+gulp.task( 'watch-assets', () => {
+
+   /* copy on change */
+   let copyAssets;
+   return gulp.watch( `${ VIEWS_DIR }/**/*`, gulp.series( copyAssets = () => { 
+      return gulp.src( [
+         `${ VIEWS_DIR }/**/*`
+      ], { base: WWW_DIR } )
+         .pipe( gulp.dest( DIST_DIR ) );
+   }));
+});
+/* END */
+
+/* START primary tasks */
+/* build all */
+gulp.task( 'default', gulp.series( 'copy', 'tsc', 'install' ) );
+
+/* watch changes ( assets, typescripts ) */
+gulp.task( 'watch', gulp.series( 'copy', 'install', 'watch-assets', function watch( next ) {
    try {
       let tsc = spawn( 'tsc', [ '-w', '-p', './tsconfig.json', '--outDir', `${ DIST_DIR }` ] );
       tsc.stdout.on( 'data', data => console.log(`${ data }`) );
@@ -45,6 +64,4 @@ gulp.task( 'watch', gulp.series( 'copy', 'install', function watch( next ) {
    };
    return undefined;
 }));
-
-/* build all */
-gulp.task( 'default', gulp.series( 'copy', 'tsc', 'install' ) );
+/* END */

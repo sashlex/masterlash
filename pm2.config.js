@@ -2,12 +2,12 @@ module.exports = {
    apps : [
       {
          name: 'masterlash',
-         script: 'www/server.js',
+         script: 'dist/server.js',
          watch: [
-            "www"
+            "dist"
          ],
          ignore_watch : [
-            "www/node_modules"
+            "dist/node_modules"
          ],
          watch_options: {
             followSymlinks: false
