@@ -32,7 +32,7 @@ app.use( async ( ctx, next ) => {
    options.app = app;
 
    /* render */
-   ctx.render = ( path ) => {
+   ctx.render = path => {
       ctx.body =  pug.renderFile( `${ configs.VIEWS_DIR }/${ path }` );
       return ctx.body;
    };
