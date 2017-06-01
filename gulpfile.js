@@ -6,12 +6,14 @@ const exec = require( 'child_process' ).exec;
 const spawn = require( 'child_process' ).spawn;
 const WWW_DIR = path.normalize( `${ __dirname }/www` );
 const VIEWS_DIR = path.normalize( `${ WWW_DIR }/views` );
+const PUBLIC_DIR = path.normalize( `${ WWW_DIR }/public` );
 const DIST_DIR = path.normalize( `${ __dirname }/dist` );
 
 /* START secondary tasks */
 /* copy files */
 gulp.task( 'copy', () => gulp.src( [
-   `${ VIEWS_DIR }/**/*`,
+   `${ VIEWS_DIR }/**/*`, // copy into DIST_DIR
+   `${ PUBLIC_DIR }/**/*`, // copy into DIST_DIR
    `${ WWW_DIR }/package.json`
 ], { base: WWW_DIR } ).pipe( gulp.dest( DIST_DIR ) ) );
 
@@ -39,9 +41,9 @@ gulp.task( 'watch-assets', () => {
 
    /* copy on change */
    let copyAssets;
-   return gulp.watch( `${ VIEWS_DIR }/**/*`, gulp.series( copyAssets = () => { 
+   return gulp.watch( [ `${ VIEWS_DIR }/**/*` ], gulp.series( copyAssets = () => {
       return gulp.src( [
-         `${ VIEWS_DIR }/**/*`
+         `${ VIEWS_DIR }/**/*`, // copy into DIST_DIR
       ], { base: WWW_DIR } )
          .pipe( gulp.dest( DIST_DIR ) );
    }));
