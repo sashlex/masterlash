@@ -5,7 +5,10 @@
       "moduleResolution": "node",
       "module": "CommonJS",
       "sourceMap": true,
-      "outDir": "./dist"
+      "outDir": "./dist",
+      "typeRoots": [
+         "node_modules/@types"
+      ]
    },
    "include": [
       "www/server.ts"

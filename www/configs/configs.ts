@@ -1,11 +1,12 @@
 'use strict';
 
-const path = require( 'path' );
-const rootDir = path.normalize( `${__dirname}/../` );
-const viewsDir = path.normalize( `${rootDir}/views` );
+import * as path from 'path';
+const rootDir = path.normalize( `${ __dirname }/../` );
+const viewsDir = path.normalize( `${ rootDir }/views` );
+const publicDir = path.normalize( `${ rootDir }/public` );
 const nodeEnv = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
-const configs = {
+const configs : any = {
 
    NODE_ENV: nodeEnv,
    LOG: nodeEnv !== 'production',
@@ -13,6 +14,7 @@ const configs = {
 
    ROOT_DIR: rootDir,
    VIEWS_DIR: viewsDir,
+   PUBLIC_DIR: publicDir,
 
    /* logger options */
    LOGGER_CONSOLE_OPTIONS: {
@@ -31,7 +33,13 @@ const configs = {
    /* template engine config */
    PUG_OPTIONS: {
       basedir: viewsDir
+   },
+
+   /* js-beautify options */
+   JS_BEAUTIFY_OPTIONS: {
+      indent_size: 3,
+      indent_char: ' ',
    }
 };
 
-module.exports = configs;
+export default configs;

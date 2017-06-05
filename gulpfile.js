@@ -41,9 +41,10 @@ gulp.task( 'watch-assets', () => {
 
    /* copy on change */
    let copyAssets;
-   return gulp.watch( [ `${ VIEWS_DIR }/**/*` ], gulp.series( copyAssets = () => {
+   return gulp.watch( [ `${ VIEWS_DIR }/**/*`, `${ PUBLIC_DIR }/**/*` ], gulp.series( copyAssets = () => {
       return gulp.src( [
          `${ VIEWS_DIR }/**/*`, // copy into DIST_DIR
+         `${ PUBLIC_DIR }/**/*`
       ], { base: WWW_DIR } )
          .pipe( gulp.dest( DIST_DIR ) );
    }));
@@ -55,7 +56,7 @@ gulp.task( 'watch-assets', () => {
 gulp.task( 'default', gulp.series( 'copy', 'tsc', 'install' ) );
 
 /* watch changes ( assets, typescripts ) */
-gulp.task( 'watch', gulp.series( 'copy', 'install', 'watch-assets', function watch( next ) {
+gulp.task( 'watch', gulp.series( 'copy', 'install', gulp.parallel( 'watch-assets', function watch( next ) { // run watchers parallel, to avoid watcher missing
    try {
       let tsc = spawn( 'tsc', [ '-w', '-p', './tsconfig.json', '--outDir', `${ DIST_DIR }` ] );
       tsc.stdout.on( 'data', data => console.log(`${ data }`) );
@@ -65,5 +66,5 @@ gulp.task( 'watch', gulp.series( 'copy', 'install', 'watch-assets', function wat
       return next( error );
    };
    return undefined;
-}));
+})));
 /* END */
