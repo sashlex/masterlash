@@ -9,7 +9,8 @@
       "compose": "docker-compose up --build",
       "watch": "yarn start-dev & gulp watch",
       "stop": "pm2 stop all",
-      "start-dev": "DEBUG='*' pm2-dev start pm2.config.js --env development"
+      "start-dev": "DEBUG='*' pm2-dev start pm2.config.js --env development",
+      "clear": "rm -rf ./dist/*"
    },
    "dependencies": {},
    "devDependencies": {
