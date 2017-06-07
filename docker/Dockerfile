@@ -10,5 +10,5 @@ EXPOSE 3100:3100
 
 ENTRYPOINT ["npm", "run"]
 
-# default command (pssible pass "prod" as argument)
+# default command "dev" (possible pass "prod" as argument when run image)
 CMD ["dev"]
