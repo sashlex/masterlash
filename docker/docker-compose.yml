@@ -1,0 +1,13 @@
+version: '3.2'
+
+services:
+
+   masterlash:
+      container_name: masterlash
+      build:
+         context: ../
+         dockerfile: ./docker/Dockerfile
+      image: masterlash
+      restart: "no"
+      ports:
+         - 3100:3100

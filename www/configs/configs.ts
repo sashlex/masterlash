@@ -10,7 +10,7 @@ const configs : any = {
 
    NODE_ENV: nodeEnv,
    LOG: nodeEnv !== 'production',
-   PORT: 3000,
+   PORT: 3100,
 
    ROOT_DIR: rootDir,
    VIEWS_DIR: viewsDir,
