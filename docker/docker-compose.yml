@@ -8,6 +8,6 @@ services:
          context: ../
          dockerfile: ./docker/Dockerfile
       image: masterlash
-      restart: "no"
+      restart: always
       # ports:
       #    - 3100:3100

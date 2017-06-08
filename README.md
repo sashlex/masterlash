@@ -13,6 +13,6 @@
 * upload image on remote server, for example with rsync
 * on remote: docker load -i masterlash.tar
 * setup remote nginx with: proxy_pass http://localhost:3100 and other important nginx configs
-* run dev mode: docker run -dp 3100:3100 masterlash dev
-* run prod mode: docker run -dp 3100:3100 masterlash prod
+* run dev mode: docker run -dp 3100:3100 --restart=always masterlash dev
+* run prod mode: docker run -dp 3100:3100 --restart=always masterlash prod
 
