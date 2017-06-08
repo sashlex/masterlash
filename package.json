@@ -6,11 +6,12 @@
    "license": "MIT",
    "scripts": {
       "build": "gulp",
-      "compose": "docker-compose up --build",
+      "dcu": "yarn build && cd ./docker && docker-compose up --build",
+      "dcb": "yarn build && cd ./docker && docker-compose build",
       "watch": "yarn start-dev & gulp watch",
       "stop": "pm2 stop all",
       "start-dev": "DEBUG='*' pm2-dev start pm2.config.js --env development",
-      "clear": "rm -rf ./dist/*"
+      "wash": "rm -rf ./dist/*"
    },
    "dependencies": {},
    "devDependencies": {

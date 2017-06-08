@@ -6,7 +6,7 @@ RUN cd /www && npm install
 
 WORKDIR /www
 
-EXPOSE 3100:3100
+# EXPOSE 3100
 
 ENTRYPOINT ["npm", "run"]
 

@@ -9,5 +9,5 @@ services:
          dockerfile: ./docker/Dockerfile
       image: masterlash
       restart: "no"
-      ports:
-         - 3100:3100
+      # ports:
+      #    - 3100:3100
